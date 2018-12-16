@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Christine Kordik",
-    "currentPage": "index.html",
+    "currentPage": "Reconnective-Healing.html",
     "theme": {
       "name": "hotelm4",
       "title": "HotelM4",
@@ -1555,7 +1555,7 @@
             "background-color": "@bgColor"
           },
           "_name": "content2",
-          "_customHTML": "<section class=\"mbr-section content2\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n        <input type=\"color\" title=\"Backgroud Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-md-10\">\n                <div class=\"mbr-section-btn align-center\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-lg btn-primary\" href=\"index.html#form1-l\" data-app-placeholder=\"Type Text\">Termin buchen</a>\n                    <a class=\"btn btn-lg btn-primary-outline\" href=\"https://www.questico.de/berater/christine-kordik/profil/?listing_no=2224112\" data-app-placeholder=\"Type Text\">Telefonische Beratung</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"mbr-section content2\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n        <input type=\"color\" title=\"Backgroud Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-md-10\">\n                <div class=\"mbr-section-btn align-center\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-lg btn-primary\" href=\"index.html#form1-l\" data-app-placeholder=\"Type Text\">Termin buchen</a>\n                    <a class=\"btn btn-lg btn-primary-outline\" href=\"Telefonberatung.html\" data-app-placeholder=\"Type Text\">Telefonische Beratung</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "rci10ryhpD",
           "_anchor": "content2-10",
           "_protectedParams": [],
