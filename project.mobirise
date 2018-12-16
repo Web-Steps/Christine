@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Christine Kordik",
-    "currentPage": "index.html",
+    "currentPage": "Impressum.html",
     "theme": {
       "name": "hotelm4",
       "title": "HotelM4",
@@ -41,7 +41,7 @@
     "cookiesAlert": "We use cookies to give you the best experience. Read our <a href='privacy.html'>cookie policy</a>.",
     "gdpr": "",
     "siteUrl": "",
-    "uniqCompNum": 65,
+    "uniqCompNum": 66,
     "versionPublish": "4.8.7",
     "screenshot": "screenshot.png",
     "mcShopcart": {
@@ -1252,7 +1252,7 @@
     "Reconnective-Healing.html": {
       "settings": {
         "title": "Reconnective Healing",
-        "order": 3
+        "order": 1
       },
       "components": [
         {
@@ -2193,7 +2193,7 @@
     "datenschutz.html": {
       "settings": {
         "title": "Datenschutz",
-        "order": 1
+        "order": 5
       },
       "components": [
         {
@@ -2673,7 +2673,7 @@
     "Impressum.html": {
       "settings": {
         "title": "Impressum",
-        "order": 2
+        "order": 4
       },
       "components": [
         {
@@ -3115,10 +3115,92 @@
           "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@scaleImg)": {
+              ".wrapper": {
+                "overflow": "hidden",
+                "img": {
+                  "transition": "all .5s"
+                },
+                "&:hover": {
+                  "img": {
+                    "-webkit-transform": "scale3d(1.1, 1.1, 1.1)",
+                    "transform": "scale3d(1.1, 1.1, 1.1)"
+                  }
+                }
+              }
+            },
+            ".underline": {
+              ".line": {
+                "width": "2rem",
+                "height": "1px",
+                "background": "@underlineColor",
+                "display": "inline-block"
+              }
+            },
+            ".wrapper": {
+              "position": "relative",
+              "padding": "2rem",
+              "display": "flex",
+              "-webkit-justify-content": "center",
+              "justify-content": "center",
+              "-webkit-align-items": "flex-end",
+              "align-items": "flex-end",
+              "height": "~\"@{cardHeight}rem\"",
+              ".mbr-overlay": {
+                "background": "@cardOverlayColor",
+                "opacity": "@cardOpacity",
+                "border-top-right-radius": "25%",
+                "z-index": "1"
+              },
+              "img": {
+                "position": "absolute",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "height": "100%",
+                "object-fit": "cover",
+                "object-position": "center center"
+              },
+              ".content-block": {
+                "position": "relative",
+                "width": "100%",
+                "z-index": "1"
+              }
+            },
+            ".popup-btn": {
+              ".mbr-overlay": {
+                "border-top-right-radius": "0 !important"
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".first-row-card": {
+                "padding-bottom": "2rem"
+              }
+            }
+          },
+          "_name": "features13",
+          "_customHTML": "<section class=\"features13 popup-btn-cards\" group=\"Features\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\" plugins=\"mbr-popup-btns\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"3\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" condition=\"showSubtitle\">\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#878787\" condition=\"showSubtitle && showUnderline\">\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\" selected>1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n        </select>\n        <input type=\"checkbox\" title=\"Scale Image On Hover\" name=\"scaleImg\" checked>\n        <input type=\"checkbox\" title=\"Show Card Title\" name=\"showCardTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Card Subtitle\" name=\"showCardSubtitle\" checked>\n        <input type=\"range\" inline title=\"Card Height\" name=\"cardHeight\" min=\"10\" max=\"40\" step=\"1\" value=\"24\">\n        <input type=\"checkbox\" title=\"Card Overlay\" name=\"cardOverlay\" checked>\n        <input type=\"color\" title=\"Card Overlay Color\" name=\"cardOverlayColor\" value=\"#000000\" condition=\"cardOverlay\">\n        <input type=\"range\" inline title=\"Card Overlay Opacity\" name=\"cardOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"cardOverlay\">\n        \n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background4.jpg\" parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Background Video\" value=\"https://www.youtube.com/watch?v=2jqUN6d6ZyM\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h3 class=\"mbr-section-subtitle main-subtitle mbr-fonts-style align-center mbr-lighter\" mbr-class=\"{'pb-3': !showUnderline}\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".main-subtitle\"><b>Christine Kordik&nbsp;</b></h3>\n        <div class=\"underline align-center pb-3\" mbr-if=\"showUnderline && showSubtitle\">\n            <div class=\"line\"></div>\n        </div>\n        <h2 class=\"mbr-section-title main-title mbr-fonts-style align-center\" mbr-if=\"showTitle\" mbr-theme-style=\"display-2\" data-app-selector=\".main-title\">\n            Hotel Services\n        </h2>\n        <div class=\"row justify-content-center\" mbr-class=\"{'mt-5': showTitle}\">\n            <div class=\"col-md-6 content-section\" mbr-class=\"{'col-lg-4': cardsAmount < 4,\n                             'col-lg-3': cardsAmount == 4,\n                             'first-row-card': cardsAmount > 2}\">\n                <div class=\"wrapper card-wrapper\">\n                    <div class=\"mbr-overlay\" mbr-if=\"cardOverlay\"></div>\n                    <img src=\"@PROJECT_PATH@/assets/images/0-0-0-0-173-240-csupload-69652998-173x240.jpg\" alt title>\n                    <div class=\"content-block mbr-white\">\n                        <h2 class=\"mbr-section-title card-title mbr-fonts-style align-center mbr-lighter pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">Christine Kordik&nbsp;</h2>\n                        <h3 class=\"mbr-section-subtitle card-subtitle mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            Hallo...</h3>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 content-section\" mbr-class=\"{'col-lg-4': cardsAmount < 4,\n                             'col-lg-3': cardsAmount == 4,\n                             'first-row-card': cardsAmount > 2}\" mbr-if=\"cardsAmount >= 2\">\n                <div class=\"wrapper card-wrapper\">\n                    <div class=\"mbr-overlay\" mbr-if=\"cardOverlay\"></div>\n                    <img src=\"../_images/img/08.jpg\" alt>\n                    <div class=\"content-block mbr-white\">\n                        <h2 class=\"mbr-section-title card-title mbr-fonts-style align-center mbr-lighter pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Restaurant\n                        </h2>\n                        <h3 class=\"mbr-section-subtitle card-subtitle mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            LOREM IPSUM\n                        </h3>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 content-section\" mbr-class=\"{'col-lg-4': cardsAmount < 4,\n                             'col-lg-3': cardsAmount == 4}\" mbr-if=\"cardsAmount >= 3\">\n                <div class=\"wrapper card-wrapper\">\n                    <div class=\"mbr-overlay\" mbr-if=\"cardOverlay\"></div>\n                    <img src=\"../_images/img/09.jpg\" alt>\n                    <div class=\"content-block mbr-white\">\n                        <h2 class=\"mbr-section-title card-title mbr-fonts-style align-center mbr-lighter pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Wellness &amp; SPA\n                        </h2>\n                        <h3 class=\"mbr-section-subtitle card-subtitle mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            LOREM IPSUM\n                        </h3>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 content-section\" mbr-class=\"{'col-lg-4': cardsAmount < 4,\n                             'col-lg-3': cardsAmount == 4}\" mbr-if=\"cardsAmount == 4\">\n                <div class=\"wrapper card-wrapper\">\n                    <div class=\"mbr-overlay\" mbr-if=\"cardOverlay\"></div>\n                    <img src=\"../_images/img/09.jpg\" alt>\n                    <div class=\"content-block mbr-white\">\n                        <h2 class=\"mbr-section-title card-title mbr-fonts-style align-center mbr-lighter pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title\">\n                            Wellness &amp; SPA\n                        </h2>\n                        <h3 class=\"mbr-section-subtitle card-subtitle mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showCardSubtitle\" data-app-selector=\".card-subtitle\">\n                            LOREM IPSUM\n                        </h3>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    </div>\n</section>",
+          "_cid": "rcoQncPoSJ",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "features13-1t"
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
             "background-color": "@bgColor"
           },
           "_name": "content1",
-          "_customHTML": "<section class=\"mbr-section content1\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Oben\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n        <input type=\"range\" inline title=\"Unten\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n        <input type=\"checkbox\" title=\"Unterstrich Anzeigen\" name=\"showUnderline\" checked>\n        <input type=\"color\" title=\"Unterstrichfarbe\" name=\"underlineColor\" value=\"#f9e2af\" condition=\"showUnderline\">\n        <input type=\"color\" title=\"Hintergrundfarbe\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-md-10 col-sm-12 text-section\">\n                <p class=\"mbr-fonts-style mbr-text align-center\" data-app-selector=\".mbr-text, .ornament\" mbr-theme-style=\"display-7\">Diese Website ist ein Angebot von <br>\n<br><b>Christine Kordik\n</b><br>Sebastian-Gratzl-Str. 13a\n<br>94315 Straubing/Unterzeitldorn\n<br>\n<br>Tel.: 0163/23 58 362\n<br>\n<br>christinekordik@lichtleben.eu<br>Inhaltliche Verantwortung im Sinne des Presserechts: \n<br>Christine Kordik  - &nbsp;(Anschrift wie oben) \n<br><br>Webdesign: Winhold Peter  Web-Steps MEDIA   www.web-steps.de&nbsp;<br><br><b>Haftungsausschluß\n</b><br><br>1. Allgemein\n<br>\n<br>Der Herausgeber übernimmt keinerlei Gewähr für Aktualität,  Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüchen gegen den Herausgeber, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Herausgebers kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend und unverbindlich. Der Herausgeber behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.\n<br><br><b>2. Links\n</b><br><br>Der Herausgeber übernimmt ausdrücklich keine Verantwortung für Inhalte fremder Internetseiten, die außerhalb dieses Onlineangebotes liegen und auf die gegebenenfalls verwiesen (gelinkt) wird. Insbesondere macht sich der Herausgeber die Inhalte der gelinkten Internetseiten nicht zu eigen. Gleiches gilt auch für fremde Internetseiten, die auf das Onlineangebot des Herausgebers verweisen, oder es in ihr Onlineangebot einbinden. Das Erscheinen in Linksammlungen, Verzeichnissen, Suchmaschinen, etc. begründet keine Verantwortung des Herausgebers für Inhalt des jeweiligen Verzeichnisses und für Inhalte der in diesem Umfeld aufgeführten anderen Internetseiten.\n<br><br><b>3. Urheber- und Markenrecht\n</b><br><br>Alle innerhalb des Onlineangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümern. Das Copyright für veröffentlichte, vom Herausgeber selbst erstellte Objekte, bleibt allein beim Herausgeber der Seiten. Eine Vervielfältigung oder Verwendung dieser Graphik-, Ton-, und Videodokumente, Texte und Quelltexten in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Herausgebers nicht gestattet.\n<br><br><b>4. Datenschutz\n</b><br>\n<br>Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (eMail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis. Die Nutzung der im Rahmen des Impressums oder vergleichbarer Angaben veröffentlichten Kontaktdaten wie Postanschriften, Telefon- und Fax-Nummern sowie eMail-Adressen durch Dritte zur Versendung von nicht ausdrücklich angeforderten Informationen ist nicht gestattet.\n<br><br><b>5. Google Analytics\n</b><br><br>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google“) Google Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht. Die durch den Cookie erzeugten Informationen über Ihre Benutzung diese Website (einschließlich Ihrer IP-Adresse) wird an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können. Durch die Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.\n<br><br><b>6. Salvatorische Klausel\n</b><br>\n<br>Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.&nbsp;<br><br><a href=\"#top\">nach oben</a> \n<br>\n<br><a href=\"index.html\">ZUR STARTSEITE\n</a><br>\n<br><a href=\"index.html#form2-o\">KONTAKT</a>&nbsp;<br></p>\n                <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                        <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section class=\"mbr-section content1\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Oben\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Unten\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"3\">\n        <input type=\"checkbox\" title=\"Unterstrich Anzeigen\" name=\"showUnderline\" checked>\n        <input type=\"color\" title=\"Unterstrichfarbe\" name=\"underlineColor\" value=\"#f9e2af\" condition=\"showUnderline\">\n        <input type=\"color\" title=\"Hintergrundfarbe\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-md-10 col-sm-12 text-section\">\n                <p class=\"mbr-fonts-style mbr-text align-center\" data-app-selector=\".mbr-text, .ornament\" mbr-theme-style=\"display-7\">Diese Website ist ein Angebot von <br>\n<br><b>Christine Kordik\n</b><br>Sebastian-Gratzl-Str. 13a\n<br>94315 Straubing/Unterzeitldorn\n<br>\n<br>Tel.: 0163/23 58 362\n<br>\n<br>christinekordik@lichtleben.eu<br>Inhaltliche Verantwortung im Sinne des Presserechts: \n<br>Christine Kordik  - &nbsp;(Anschrift wie oben) \n<br><br>Webdesign: Winhold Peter  Web-Steps MEDIA   www.web-steps.de&nbsp;<br><br><b>Haftungsausschluß\n</b><br><br>1. Allgemein\n<br>\n<br>Der Herausgeber übernimmt keinerlei Gewähr für Aktualität,  Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüchen gegen den Herausgeber, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Herausgebers kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend und unverbindlich. Der Herausgeber behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.\n<br><br><b>2. Links\n</b><br><br>Der Herausgeber übernimmt ausdrücklich keine Verantwortung für Inhalte fremder Internetseiten, die außerhalb dieses Onlineangebotes liegen und auf die gegebenenfalls verwiesen (gelinkt) wird. Insbesondere macht sich der Herausgeber die Inhalte der gelinkten Internetseiten nicht zu eigen. Gleiches gilt auch für fremde Internetseiten, die auf das Onlineangebot des Herausgebers verweisen, oder es in ihr Onlineangebot einbinden. Das Erscheinen in Linksammlungen, Verzeichnissen, Suchmaschinen, etc. begründet keine Verantwortung des Herausgebers für Inhalt des jeweiligen Verzeichnisses und für Inhalte der in diesem Umfeld aufgeführten anderen Internetseiten.\n<br><br><b>3. Urheber- und Markenrecht\n</b><br><br>Alle innerhalb des Onlineangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümern. Das Copyright für veröffentlichte, vom Herausgeber selbst erstellte Objekte, bleibt allein beim Herausgeber der Seiten. Eine Vervielfältigung oder Verwendung dieser Graphik-, Ton-, und Videodokumente, Texte und Quelltexten in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Herausgebers nicht gestattet.\n<br><br><b>4. Datenschutz\n</b><br>\n<br>Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (eMail-Adressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis. Die Nutzung der im Rahmen des Impressums oder vergleichbarer Angaben veröffentlichten Kontaktdaten wie Postanschriften, Telefon- und Fax-Nummern sowie eMail-Adressen durch Dritte zur Versendung von nicht ausdrücklich angeforderten Informationen ist nicht gestattet.\n<br><br><b>5. Google Analytics\n</b><br><br>Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google“) Google Analytics verwendet sog. „Cookies“, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht. Die durch den Cookie erzeugten Informationen über Ihre Benutzung diese Website (einschließlich Ihrer IP-Adresse) wird an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können. Durch die Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.\n<br><br><b>6. Salvatorische Klausel\n</b><br>\n<br>Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.&nbsp;<br><br><a href=\"#top\">nach oben</a> \n<br>\n<br><a href=\"index.html\">ZUR STARTSEITE\n</a><br>\n<br><a href=\"index.html#form2-o\">KONTAKT</a>&nbsp;<br></p>\n                <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                        <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                    </svg>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "content1-1u",
           "_isUserblock": true,
           "_sourceTheme": "restaurantm4",
@@ -3153,7 +3235,7 @@
     "Telefonberatung.html": {
       "settings": {
         "title": "Telefonberatung",
-        "order": 4
+        "order": 3
       },
       "components": [
         {
@@ -3845,7 +3927,7 @@
     "The-Reconnection.html": {
       "settings": {
         "title": "The  Reconnection",
-        "order": 5
+        "order": 2
       },
       "components": [
         {
