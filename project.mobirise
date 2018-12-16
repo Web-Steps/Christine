@@ -39,7 +39,7 @@
     "noImageResize": "",
     "google-analytics": "",
     "cookiesAlert": "We use cookies to give you the best experience. Read our <a href='privacy.html'>cookie policy</a>.",
-    "gdpr": "By continiung you agree to our <a href='terms.html'>Terms of Service</a> and <a href='policy.html'>Privacy Policy</a>.",
+    "gdpr": "Durch das Absenden stimmen Sie unseren <a href= https://web-steps.github.io/Christine/datenschutz.html>Datenschutzbestimmungen</a> zu..",
     "siteUrl": "",
     "uniqCompNum": 69,
     "versionPublish": "4.8.7",
@@ -57,7 +57,7 @@
       "checkoutButton": "Check out mit",
       "email": "christinekordik@lichtleben.eu"
     },
-    "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
+    "robotsText": "User-agent: *\nDisallow: /cgi-bin\n\n",
     "robotsSwitcher": "on",
     "sitemapSwitcherAuto": "on",
     "sitemapSwitcher": "on"
