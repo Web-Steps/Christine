@@ -6,7 +6,7 @@
       "name": "hotelm4",
       "title": "HotelM4",
       "styling": {
-        "primaryColor": "#ef7c0e",
+        "primaryColor": "#C19B76",
         "secondaryColor": "#3f855b",
         "successColor": "#c0d9ca",
         "infoColor": "#709FAF",
@@ -28,13 +28,10 @@
         "isScrollToTopButton": false
       },
       "additionalSetColors": [
-        "#09d013",
         "#ef7c0e",
         "#d46801",
         "#5c0088",
-        "#530279",
-        "#aa11f4",
-        "#c9792d"
+        "#530279"
       ]
     },
     "path": "@PROJECT_PATH@",
