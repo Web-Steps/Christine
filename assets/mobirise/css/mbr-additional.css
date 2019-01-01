@@ -1350,7 +1350,7 @@ body {
 .cid-rciUIbnwy5 {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-image: url("../../../assets/images/meditation-3592017-960-721-960x557.jpg");
+  background-image: url("../../../assets/images/mbr-9-1920x1280.jpg");
 }
 .cid-rciUIbnwy5 .underline .line {
   width: 2rem;
@@ -1525,7 +1525,7 @@ body {
   padding: 1rem;
 }
 .cid-rcdVNCVhiK .text-block {
-  background: #000000;
+  background: #530279;
   padding: 2rem;
   outline: 1px dashed #f9e2af;
   outline-offset: -15px;
@@ -1557,7 +1557,7 @@ body {
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .cid-rcdVNCVhiK .text-block {
     border: 1px dashed #f9e2af;
-    outline: 15px solid #000000;
+    outline: 15px solid #530279;
   }
 }
 .cid-rcdVNCVhiK .form-label-outside {
